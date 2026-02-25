@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PAYMENT GATEWAY</title>
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #f4f4f4;
+    padding: 30px;
+}
+.box {
+    background: white;
+    padding: 20px;
+    margin: 15px auto;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    opacity: 0.8;
+}
+</style>
+</head>
+<body>
+
+<h2>Payment Method</h2>
+
+<div class="box">
+<h3>BCA : SHIDQI ABDISSALAM</h3>
+<p id="bca">8470262584</p>
+<button onclick="copyText('bca')">Copy Nomor</button>
+</div>
+
+<div class="box">
+<h3>DANA : SHIDQI ABDISSALAM</h3>
+<p id="dana">085721661370</p>
+<button onclick="copyText('dana')">Copy Nomor</button>
+</div>
+
+<div class="box">
+<h3>GoPay : SHIDQI ABDISSALAM</h3>
+<p id="gopay">085721661370</p>
+<button onclick="copyText('gopay')">Copy Nomor</button>
+</div>
+
+<div class="box">
+<h3>ShopeePay : SHIDQI ABDISSALAM</h3>
+<p id="shopee">085721661370</p>
+<button onclick="copyText('shopee')">Copy Nomor</button>
+</div>
+
+<script>
+function copyText(id) {
+    var text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+    alert("Nomor berhasil disalin!");
+}
+</script>
+
+</body>
+</html>
