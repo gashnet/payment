@@ -59,6 +59,7 @@ body {
 .box:nth-of-type(2) { animation-delay: 0.4s; }
 .box:nth-of-type(3) { animation-delay: 0.6s; }
 .box:nth-of-type(4) { animation-delay: 0.8s; }
+.box:nth-of-type(5) { animation-delay: 1.0s; }
 
 /* Payment Logo */
 .payment-logo {
@@ -100,6 +101,61 @@ button {
 button:hover {
     transform: scale(1.07);
     box-shadow: 0 8px 20px rgba(184,134,11,0.4);
+}
+
+/* Cadangan jika logo seabank.png belum di-upload */
+.logo-fallback {
+    width: 55px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #5c3b00;
+    text-align: center;
+}
+
+/* ===== NOTE BUKTI TRANSFER ===== */
+.note {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 6px;
+    background: rgba(255, 250, 240, 0.85);
+    backdrop-filter: blur(18px);
+    border-radius: 18px;
+    border: 1px dashed #b8860b;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease 1.2s forwards;
+}
+
+.note .lead {
+    font-size: 13px;
+    font-weight: 400;
+    color: #5c3b00;
+    margin-bottom: 4px;
+}
+
+.note .who {
+    font-size: 15px;
+    font-weight: 600;
+    color: #5c3b00;
+}
+
+.note .num {
+    font-size: 16px;
+    font-weight: 600;
+    color: #5c3b00;
+    letter-spacing: 1px;
 }
 
 /* Toast */
@@ -155,6 +211,15 @@ button:hover {
 </div>
 
 <div class="box">
+    <img src="seabank.png" class="payment-logo" alt="SeaBank" onerror="this.outerHTML='<div class=&quot;logo-fallback&quot;>SeaBank</div>'">
+    <div class="info">
+        <h3>SHIDQI ABDISSALAM</h3>
+        <p id="seabank">901628178950</p>
+    </div>
+    <button onclick="copyText('seabank')">Copy</button>
+</div>
+
+<div class="box">
     <img src="dana.png" class="payment-logo">
     <div class="info">
         <h3>SHIDQI ABDISSALAM</h3>
@@ -179,6 +244,15 @@ button:hover {
         <p id="shopee">085721661370</p>
     </div>
     <button onclick="copyText('shopee')">Copy</button>
+</div>
+
+<div class="note">
+    <div>
+        <p class="lead">Harap kirim bukti transfer ke :</p>
+        <p class="who">SHIDQI ABDISSALAM</p>
+        <p class="num" id="wa">085721661370</p>
+    </div>
+    <button onclick="copyText('wa')">Copy</button>
 </div>
 
 <div id="toast" class="toast">Nomor berhasil disalin!</div>
